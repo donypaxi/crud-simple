@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    
+    <h1>Hola CRUD</h1>
+    <form>
+        <label for="nombre">Ingrese su nombre</label>
+        <input type="text" id="nombre" >
+        <br>
+        <br>
+        <label for="apellido">Ingrese su Apellido</label>
+        <input type="text" id="apellido" >
+        <br>
+        <br>
+        <input type="button" onclick="btnEnviarDatos()" value="Enviar Datos">
+
+    </form>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Apellido</th>
+            </tr>
+        </thead>
+        <tbody id="lista"></tbody>
+
+
+    </table>
+<script src="main.js"></script>
+</body>
+</html>
