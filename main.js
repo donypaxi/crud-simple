@@ -6,13 +6,14 @@ document.addEventListener('DOMContentLoaded',()=>{
     mostrarDatos()
 })
 // metodo post
+const URL = 'https://server-crud-simple-production.up.railway.app/'
 const btnEnviarDatos = async ()=> {
     let persona = {
         nombre: $nombre.value,
         apellido: $apellido.value
     }
     
-    const res = await fetch('http://localhost:3000/',{
+    const res = await fetch(URL,{
         method:'POST',
         headers:{
             'Content-Type': 'application/json'
@@ -20,6 +21,7 @@ const btnEnviarDatos = async ()=> {
         body:JSON.stringify(persona)
     })
     const data = await res.json()
+    console.log(data)
     mostrarDatos();
 }
 
@@ -27,7 +29,7 @@ const btnEnviarDatos = async ()=> {
 const mostrarDatos = async () => {
     limpieza()
 
-    const res = await fetch('http://localhost:3000')
+    const res = await fetch(URL)
     const datas = await res.json()
     console.log(datas)
 
@@ -68,7 +70,7 @@ const editar = async(i)=> {
     let newApellido = prompt('ingrese un nuevo apellido')
     let newDatos={nombre:newNombre , apellido:newApellido}
 
-    const res = await fetch(`http://localhost:3000/${i}`,{
+    const res = await fetch(`${URL}/${i}`,{
         method:"PUT",
         headers:{
             "Content-Type":"application/json"
@@ -84,7 +86,7 @@ const editar = async(i)=> {
 
 // metodo DELETE
 const eliminar = async(i)=> {
-    const res = await fetch(`http://localhost:3000/${i}`,{
+    const res = await fetch(`${URL}/${i}`,{
         method:"DELETE",
         headers:{
             "Content-Type" : "application/json"
